@@ -1,10 +1,6 @@
-
 package Answer;
 import Question.Questions;
-/**
- *
- * @author User
- */
+
 public abstract class Answer {
     
     String answer;

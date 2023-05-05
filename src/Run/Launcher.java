@@ -6,26 +6,22 @@ import Quiz.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author User
- */
 public class Launcher {
 
     public static void main(String[] args) {
         Scanner ls = new Scanner(System.in);
-        int l = 0;
+
         Global a = new Global();
         Type t = new Type();
 
-        while (l != 3) {
+        System.out.println("Digite:\n [1]Crear Quiz \n [2]Diligenciar Quiz\n [3]Salir");
+        int l = ls.nextInt();
 
-            System.out.println("Digite:\n [1]Crear Encuesta \n [2]Diligenciar Encuesta\n [3]Salir");
-            l = ls.nextInt();
+        while (l != 3) {
 
             if (l == 1) {
 
-                System.out.print("Digite el nombre de la encuesta: ");
+                System.out.print("Digite el nombre del quiz: ");
                 String name = ls.next();
 
                 System.out.print("Digite la cantidad de preguntas: ");
@@ -33,22 +29,35 @@ public class Launcher {
 
                 Quiz b = new Quiz(name);
                 for (int i = 0; i < cantidad; i++) {
-                    
+
                     System.out.println("Escriba el tipo de pregunta: \n[1]Pregunta abierta \n[2]Pregunta de seleccion Si/No \n[3] Pregunta de seleccion Multiple");
                     int tipo = ls.nextInt();
 
                     t.crearPregunta(tipo, b);
                 }
+
+                a.add(b);
             } else if (l == 2) {
+
+                if (a.getQuiz().isEmpty()) {
                     
-                ArrayList<Quiz> q = a.getQuiz();
-                
-                for(int i=0;i<q.size();i++){
+                    System.out.println("No existe ningun quiz para diligenciar");
                     
+                } else {
+                    for (Quiz q1 : a.getQuiz()) {
+                        
+                        System.out.println("A continuacion el quiz:" + q1.getName());
+                        int i = 0;
+                        
+                        for (Questions a1 : q1.getQuestions()) {
+                            
+                            System.out.println("Pregunta " + i +": "+ a1.getQuestion());
+                            i++;
+                            
+                            t.evaluarPregunta(a1);
+                        }
+                    }
                 }
-                
-                System.out.print(q.get(0).getQuestion());
-                
             } else if (l == 3) {
                 break;
 

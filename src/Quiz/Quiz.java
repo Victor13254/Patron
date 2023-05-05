@@ -3,10 +3,6 @@ package Quiz;
 import Question.Questions;
 import java.util.ArrayList;
 
-/**
- *
- * @author User
- */
 public class Quiz {
     
     ArrayList<Questions> questions = new ArrayList<>();
