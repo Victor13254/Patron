@@ -1,8 +1,8 @@
 package Run;
 
-import Question.Questions;
-import Question.Type;
+import Question.*;
 import Quiz.*;
+import Answer.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -12,7 +12,8 @@ public class Launcher {
         Scanner ls = new Scanner(System.in);
 
         Global a = new Global();
-        Type t = new Type();
+        TypeQ typeQ = new TypeQ();
+        TypeA typeA = new TypeA();
 
         System.out.println("Digite:\n [1]Crear Quiz \n [2]Diligenciar Quiz\n [3]Salir");
         int l = ls.nextInt();
@@ -33,10 +34,10 @@ public class Launcher {
                     System.out.println("Escriba el tipo de pregunta: \n[1]Pregunta abierta \n[2]Pregunta de seleccion Si/No \n[3] Pregunta de seleccion Multiple");
                     int tipo = ls.nextInt();
 
-                    t.crearPregunta(tipo, b);
+                    typeQ.crearPregunta(tipo, b);
                 }
 
-                a.add(b);
+                a.add(b);   
             } else if (l == 2) {
 
                 if (a.getQuiz().isEmpty()) {
@@ -54,7 +55,7 @@ public class Launcher {
                             System.out.println("Pregunta " + i +": "+ a1.getQuestion());
                             i++;
                             
-                            t.evaluarPregunta(a1);
+                            typeA.evaluarPregunta(a1,q1);
                         }
                     }
                 }
