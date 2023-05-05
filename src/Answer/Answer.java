@@ -14,6 +14,10 @@ public abstract class Answer {
     public String getAnswer() {
         return answer;
     }
+
+    public Questions getQuestionz() {
+        return question;
+    }
     
     public abstract String evaluar();
     
