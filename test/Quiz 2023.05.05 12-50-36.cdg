@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="Quiz">
+  <ClassDiagramComponents>
+    <Class name="Answer" package="Quiz" visibility="public" isAbstract="true" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="answer" type="String" visibility="package"/>
+        <Field name="question" type="Questions" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="answer"/>
+          <Argument type="Questions" name="question"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAnswer" returnType="String" visibility="public"/>
+        <Method name="getQuestionz" returnType="Questions" visibility="public"/>
+        <Method name="evaluar" returnType="String" visibility="public" isAbstract="true"/>
+      </Methods>
+    </Class>
+    <Class name="Global" package="Quiz" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields>
+        <Field name="quiz" type="ArrayList&lt;Quiz&gt;" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Quiz" name="e"/>
+        </Method>
+        <Method name="getQuiz" returnType="ArrayList&lt;Quiz&gt;" visibility="public"/>
+        <Method name="setQuiz" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Quiz&gt;" name="quiz"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Launcher" package="Quiz" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="MultipleA" package="Quiz" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="answer"/>
+          <Argument type="Questions" name="question"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="evaluar" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="OpenA" package="Quiz" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="answer"/>
+          <Argument type="Questions" name="question"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="evaluar" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Questions" package="Quiz" visibility="public" xPosition="1520.0" yPosition="20.0">
+      <Fields>
+        <Field name="question" type="String" visibility="package"/>
+        <Field name="tipo" type="int" visibility="package"/>
+        <Field name="ans" type="String[]" visibility="package"/>
+        <Field name="respuesta" type="String" visibility="package"/>
+        <Field name="id" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="int" name="id"/>
+          <Argument type="String[]" name="ans"/>
+          <Argument type="String" name="question"/>
+          <Argument type="String" name="respuesta"/>
+          <Argument type="int" name="tipo"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTipo" returnType="int" visibility="public"/>
+        <Method name="getId" returnType="int" visibility="public"/>
+        <Method name="getQuestion" returnType="String" visibility="public"/>
+        <Method name="getAns" returnType="String[]" visibility="public"/>
+        <Method name="getRes" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Quiz" package="Quiz" visibility="public" xPosition="1820.0" yPosition="20.0">
+      <Fields>
+        <Field name="questions" type="ArrayList&lt;Questions&gt;" visibility="package"/>
+        <Field name="answer" type="ArrayList&lt;Answer&gt;" visibility="package"/>
+        <Field name="name" type="String" visibility="package"/>
+        <Field name="id" type="int" visibility="package"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="id"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Questions" name="e"/>
+        </Method>
+        <Method name="add" returnType="void" visibility="public">
+          <Argument type="Answer" name="e"/>
+        </Method>
+        <Method name="getQuestions" returnType="ArrayList&lt;Questions&gt;" visibility="public"/>
+        <Method name="setQuestions" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Questions&gt;" name="questions"/>
+        </Method>
+        <Method name="setAnswers" returnType="void" visibility="public">
+          <Argument type="ArrayList&lt;Answer&gt;" name="answer"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="setName" returnType="void" visibility="public">
+          <Argument type="String" name="name"/>
+        </Method>
+        <Method name="getAnswer" returnType="ArrayList&lt;Answer&gt;" visibility="public"/>
+        <Method name="getId" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="TypeA" package="Quiz" visibility="public" xPosition="2120.0" yPosition="20.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="evaluarPregunta" returnType="void" visibility="public">
+          <Argument type="Questions" name="q"/>
+          <Argument type="Quiz" name="g"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="TypeQ" package="Quiz" visibility="public" xPosition="20.0" yPosition="420.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public"/>
+      </Constructors>
+      <Methods>
+        <Method name="crearPregunta" returnType="void" visibility="public">
+          <Argument type="int" name="tipo"/>
+          <Argument type="Quiz" name="q"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <UseRelation source="Quiz.TypeA" target="Quiz.Quiz" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="question" source="Quiz.Answer" target="Quiz.Questions" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="Quiz.OpenA" target="Quiz.Answer"/>
+    <UseRelation source="Quiz.Answer" target="Quiz.Questions" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Quiz.Global" target="Quiz.Quiz" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="questions" source="Quiz.Quiz" target="Quiz.Questions" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Questions&gt;"/>
+    <IsRelation name="is" source="Quiz.MultipleA" target="Quiz.Answer"/>
+    <UseRelation source="Quiz.Quiz" target="Quiz.Questions" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="answer" source="Quiz.Quiz" target="Quiz.Answer" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Answer&gt;"/>
+    <HasRelation name="quiz" source="Quiz.Global" target="Quiz.Quiz" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="ArrayList&lt;Quiz&gt;"/>
+    <UseRelation source="Quiz.Quiz" target="Quiz.Answer" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <UseRelation source="Quiz.TypeQ" target="Quiz.Quiz" sourceCardinality="1..1" targetCardinality="1..1"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
