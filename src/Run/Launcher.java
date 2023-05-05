@@ -25,10 +25,13 @@ public class Launcher {
                 System.out.print("Digite el nombre del quiz: ");
                 String name = ls.next();
 
+                System.out.print("Digite el ID del Quiz: ");
+                int id = ls.nextInt();
+
                 System.out.print("Digite la cantidad de preguntas: ");
                 int cantidad = ls.nextInt();
 
-                Quiz b = new Quiz(name);
+                Quiz b = new Quiz(name, id);
                 for (int i = 0; i < cantidad; i++) {
 
                     System.out.println("Escriba el tipo de pregunta: \n[1]Pregunta abierta \n[2]Pregunta de seleccion Si/No \n[3] Pregunta de seleccion Multiple");
@@ -37,27 +40,40 @@ public class Launcher {
                     typeQ.crearPregunta(tipo, b);
                 }
 
-                a.add(b);   
+                a.add(b);
             } else if (l == 2) {
 
                 if (a.getQuiz().isEmpty()) {
-                    
+
                     System.out.println("No existe ningun quiz para diligenciar");
-                    
+
                 } else {
+                    System.out.println("Existen los siguientes Quices para Diligenciar:");
                     for (Quiz q1 : a.getQuiz()) {
-                        
-                        System.out.println("A continuacion el quiz:" + q1.getName());
-                        int i = 0;
-                        
-                        for (Questions a1 : q1.getQuestions()) {
-                            
-                            System.out.println("Pregunta " + i +": "+ a1.getQuestion());
-                            i++;
-                            
-                            typeA.evaluarPregunta(a1,q1);
-                        }
+                        System.out.println("Nombre: " + q1.getName() + "--> ID: " + q1.getId());
                     }
+                    System.out.println("Por favor digite el ID del Quiz que quiere solucionar");
+                    int ident = ls.nextInt();
+                    Quiz q1 = null;
+                    for (Quiz q2 : a.getQuiz()) {
+                        if (q2.getId() == ident) {
+                            q1 = q2;
+                        } else {
+                            System.out.println("No existe ese Quiz");
+                        }
+
+                    }
+                    System.out.println("A continuacion el quiz:" + q1.getName());
+                    int i = 0;
+
+                    for (Questions a1 : q1.getQuestions()) {
+
+                        System.out.println("Pregunta " + i + ": ");
+                        i++;
+
+                        typeA.evaluarPregunta(a1, q1);
+                    }
+
                 }
             } else if (l == 3) {
                 break;

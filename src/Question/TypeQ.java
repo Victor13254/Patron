@@ -19,18 +19,18 @@ public class TypeQ {
         Questions quest = null;
 
         if (tipo == 1) {
-            String[] ans ={};
+            String[] ans = {};
             String res = "";
-            quest = new Questions(id,ans, que, res, tipo);
+            quest = new Questions(id, ans, que, res, tipo);
 
         } else if (tipo == 2) {
 
             String[] ans = {"Si", "No"};
 
-            System.out.println("Escriba la respuesta correcta: \n [Si] o [No]");
+            System.out.print("Escriba la respuesta correcta: \n[Si] o [No] \n");
             String res = ls.next();
 
-            quest = new Questions(id,ans, que, res, tipo);
+            quest = new Questions(id, ans, que, res, tipo);
 
         } else if (tipo == 3) {
             String[] ans;
@@ -46,7 +46,7 @@ public class TypeQ {
             System.out.println("\nEscriba la respuesta correcta:");
             String res = ls.next();
 
-            quest = new Questions(id,ans, que, res, tipo);
+            quest = new Questions(id, ans, que, res, tipo);
 
         }
 
